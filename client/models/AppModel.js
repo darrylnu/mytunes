@@ -1,10 +1,12 @@
 // App.js - Defines a backbone model class for the whole app.
 var AppModel = Backbone.Model.extend({
-  count: 0,
   initialize: function(params){
+    debugger;
     this.set('currentSong', new SongModel());
-    // debugger;
+    debugger;
    this.set('songQueue', new SongQueue());
+   this.set("songQueueModel",this.get("songQueue").models);
+   debugger;
     /* Note that 'this' is passed as the third argument. That third argument is
     the context. The 'play' handler will always be bound to that context we pass in.
     In this example, we're binding it to the App. This is helpful because otherwise
@@ -15,9 +17,11 @@ var AppModel = Backbone.Model.extend({
     params.library.on('play', function(song){
       this.set('currentSong', song);
     }, this);
+
     params.library.on('enqueue', function(song){
       debugger;
       this.get('songQueue').models.push(song);
+      debugger;
     }, this);
   }, 
 });
