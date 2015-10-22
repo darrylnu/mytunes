@@ -3,20 +3,21 @@ var SongQueueEntryView = Backbone.View.extend({
   // your code here!
   // HTML5 (native) audio tag is being used
   // see: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML5_audio_and_video
-  el: '<audio controls autoplay />',
+  tagName: 'tr',
 
-  initialize: function() {
-  },
+  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td>'),
 
-  setQueue: function(songQueue){
-    // debugger;
-    this.model = songQueue;
-    this.render();
+  events: {
+    'click': function() {
+      // debugger;
+      // this.model.play();
+      // this.model.enqueue();
+    }
   },
 
   render: function(){
+    debugger;
+    return this.$el.html(this.template(this.model.attributes));
     // debugger;
-    return this.$el.attr('src', this.model ? this.model.get('url') : '');
   }
-
 });
