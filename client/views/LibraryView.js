@@ -15,7 +15,6 @@ var LibraryView = Backbone.View.extend({
     // debugger;
     this.$el.children().detach();
   // debugger;
-  debugger; 
     this.$el.html('<th>Library</th>').append(
       this.collection.map(function(song){
         // debugger;
